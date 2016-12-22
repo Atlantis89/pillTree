@@ -36,7 +36,7 @@ const long pille1_zeit = 10000; // Zeit in Millisekunden nach Start um Pille 1 z
 //anneaherung
 const int pin_annaehrung_echo = 6; // Pin Annaehrung Echo
 const int pin_annaehrung_trigger = 5; // Pin Annaehrung Trigger
-const int min_entfernung = 50; //Mindestentfernung 50 cm zu Dose
+const int min_entfernung = 10; //Mindestentfernung 50 cm zu Dose
 //end anneaherung
 //led Strip
 //const int LED_STRIP_PIN = 8;
@@ -45,7 +45,12 @@ const int min_entfernung = 50; //Mindestentfernung 50 cm zu Dose
 //const int DELAY = 3000;
 const int REFILL_DELAY = 5000;
 const int STANDBY_DELAY = 1000 * 5; // 15 Sekunden in Standby bis was passiert.
-long aktuelleZeit;
+
+//long aktuelleZeit;
+//long startTime;
+unsigned long time;
+unsigned long previousMillis = 0;
+unsigned long interval = 10000;
 //end delays
 
 enum States :int

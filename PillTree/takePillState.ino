@@ -1,4 +1,4 @@
-void takePillState() 
+void takePillState()
 {
 	Serial.println("Debug: takePillState");
 	//wenn jemand weggeht ohne pille zu nehmen --> pillsyday - 1 und baumwackeln
@@ -10,9 +10,10 @@ void takePillState()
 		if (entfernung() <= min_entfernung)
 		{
 			//Serial.println("Debug: Pille nehmen: " + analogRead(A4));
-			//Serial.println(analogRead(A4));
-			if (analogRead(A4) < 500)
+			Serial.println(analogRead(A4));
+			if (analogRead(A4) > 800)
 			{
+				Serial.println("Next lead to pull: " + nextLeafToPull);
 				switch (nextLeafToPull)
 				{
 				case 0: blattHoch(blatt1, 1, 200);
@@ -26,16 +27,16 @@ void takePillState()
 				default:
 					break;
 				}
-			if (pillsDay == 8) {
-				pillsDay = 0;
-			}
-			else {
-				pillsDay++;
-			}
+				if (pillsDay == 8) {
+					pillsDay = 0;
+				}
+				else {
+					pillsDay++;
+				}
 
-			delay(1000);
-			moveToPosition(0);
-			treeState = States::standby;
+				delay(1000);
+				moveToPosition(0);
+				treeState = States::standby;
 			}
 		}
 		else {

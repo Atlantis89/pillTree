@@ -45,6 +45,7 @@ void wackeln(Servo servo, int wartezeit) {
 //Baum mit Hilfe von Servos zum wackeln bringen.
 void baumWackeln(Servo servo, long aktuelleZeit) 
 {
+
 	if (aktuelleZeit <= pille1_zeit + max_wackel_zeit / 3) 
 	{
 		Serial.print("Debug: shake speed 1.");
@@ -65,6 +66,22 @@ void baumWackeln(Servo servo, long aktuelleZeit)
 			Serial.println(aktuelleZeit);
 			wackeln(servo, 200);
 		}
+	}
+}
+void baumWackeln2(Servo servo, unsigned long time) {
+	
+	previousMillis = millis();
+	if (time <= max_wackel_zeit / 3)
+	{
+		wackeln(servo, 500);
+	}
+	else if (time >= (max_wackel_zeit / 3) * 2)
+	{
+		wackeln(servo, 300);
+	}
+	else
+	{
+		wackeln(servo, 200);
 	}
 }
 //LED Leiste pulsieren (bis jetzt ein blockierender durchlauf)
