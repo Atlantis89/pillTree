@@ -6,31 +6,26 @@ void takePillState()
 
 	while (treeState == States::takePill)
 	{
-		//TODO: timer einbauen. wenn 
-
-		//wenn jemand davorsteht und pille nimmt
-		if (entfernung() <= min_entfernung && digitalRead(pille1_pin) == HIGH && !pillTaken)
+		//jemand steht immer noch davor
+		if (entfernung() <= min_entfernung)
 		{
-			Serial.println("Debug: Pille genommen");
-			if (!pillTaken)
+			//Serial.println("Debug: Pille nehmen: " + analogRead(A4));
+			//Serial.println(analogRead(A4));
+			if (analogRead(A4) < 500)
 			{
 				switch (nextLeafToPull)
 				{
 				case 0: blattHoch(blatt1, 1, 200);
-					pillTaken = true;
 					nextLeafToPull = 1;
 					break;
 				case 1: blattHoch(blatt2, 1, 200);
-					pillTaken = true;
 					nextLeafToPull = 2;
 					break;
 				case 2: blattHoch(blatt3, 1, 200);
-					pillTaken = true;
 					break;
 				default:
 					break;
 				}
-			}
 			if (pillsDay == 8) {
 				pillsDay = 0;
 			}
@@ -41,11 +36,12 @@ void takePillState()
 			delay(1000);
 			moveToPosition(0);
 			treeState = States::standby;
+			}
 		}
 		else {
 			//jemand stand davor und ist wieder weggegangen ohne eine pille genommen zu haben
 			moveToPosition(0);
-			pillsDay--;
+			//pillsDay--;
 			delay(10000);//warte 10 sec bis baum wieder signalisiert
 			treeState = States::signalToTakePill;
 		}

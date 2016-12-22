@@ -9,6 +9,7 @@ void pillOutputState()
 			if(pillsDay > 0 && pillsDay <= 8)
 			{
 				moveToPosition(pillsDay);
+				delay(150);
 				treeState = States::takePill;
 			}
 		}

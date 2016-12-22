@@ -68,6 +68,7 @@ void baumWackeln(Servo servo, long aktuelleZeit)
 	}
 }
 //LED Leiste pulsieren (bis jetzt ein blockierender durchlauf)
+/*
 void ledPulse() 
 {
 	for (int f = 0; f <= 150; f++) {
@@ -86,4 +87,4 @@ void ledPulse()
 		delay(20);
 	}
 	//delay(150);
-}
+}*/

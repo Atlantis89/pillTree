@@ -3,7 +3,7 @@ void standbyState()
 	//nothing else to do here
 	Serial.println("Debug: standbyState");
 	//reset zur vorführung
-	if (nextLeafToPull == 2)
+	if (nextLeafToPull == 2) //sprich, drittes blatt war oben
 	{
 		Serial.println("Debug: refill");
 		nextLeafToPull = 0;
@@ -20,6 +20,7 @@ void standbyState()
 		moveToPosition(0);
 	}
 	delay(STANDBY_DELAY);
+	Serial.println("Debug: wechsel in signalToTakePill");
 	treeState = States::signalToTakePill;
 	/*while (treeState == States::standby) 
 	{

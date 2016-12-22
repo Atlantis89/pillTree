@@ -1,5 +1,5 @@
 #include <AccelStepper.h>
-#include <Adafruit_NeoPixel.h>
+//#include <Adafruit_NeoPixel.h>
 #include <Servo.h>
 
 //== initialisierung ====================================
@@ -24,8 +24,8 @@ Servo baumwackler;
 const int baumwackler_pin = 10; // Pin Baumwackler
 const long max_wackel_zeit = 60000; // Maximale Wackelzeit des Baumes 1 Minuten
 //end wackeln
-//pillen
-const int pille1_pin = 9; // Pin Pille 1
+//pillen (ehmaliger reed)
+//const int pille1_pin = A4; // Pin Pille 1 reed
 const long pille1_zeit = 10000; // Zeit in Millisekunden nach Start um Pille 1 zu nehmen; 10 Sec
 //TODO: maybe not needed. if we only use one reed switch
 //const int pille2_pin = 8; // Pin Pille 2
@@ -39,12 +39,12 @@ const int pin_annaehrung_trigger = 5; // Pin Annaehrung Trigger
 const int min_entfernung = 50; //Mindestentfernung 50 cm zu Dose
 //end anneaherung
 //led Strip
-const int LED_STRIP_PIN = 8;
+//const int LED_STRIP_PIN = 8;
 //end led Strip
 //delays
-const int DELAY = 3000;
+//const int DELAY = 3000;
 const int REFILL_DELAY = 5000;
-const int STANDBY_DELAY = 1000 * 15; // 15 Sekunden in Standby bis was passiert.
+const int STANDBY_DELAY = 1000 * 5; // 15 Sekunden in Standby bis was passiert.
 long aktuelleZeit;
 //end delays
 
@@ -63,7 +63,7 @@ bool pillTaken = false;
 
 States treeState;
 AccelStepper pillStepper = AccelStepper(HALFSTEP, STEPPER_PIN1, STEPPER_PIN3, STEPPER_PIN2, STEPPER_PIN4);
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(30, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
+//Adafruit_NeoPixel strip = Adafruit_NeoPixel(30, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
 //== end initialisierung ================================
 
 void setup()
@@ -83,21 +83,22 @@ void setup()
 	baumwackler.attach(baumwackler_pin);
 	//end baumwackler
 	//pillen (reed schalter)
-	pinMode(pille1_pin, INPUT_PULLUP);
+	pinMode(A4, INPUT);
 	//end pillen
 	//annaeherung
 	pinMode(pin_annaehrung_trigger, OUTPUT);
 	pinMode(pin_annaehrung_echo, INPUT);
 	//end annaeherung
 	//led leiste
-	strip.begin();
-	strip.show(); // Initialize all pixels to 'off'
+	//strip.begin();
+	//strip.show(); // Initialize all pixels to 'off'
 	//end led leiste
 
 }
 
 void loop() 
 {
+	delay(1000);
 	switch (treeState)
 	{
 	case standby:standbyState();
@@ -112,5 +113,5 @@ void loop()
 		break;
 	}
 	
-	delay(DELAY);
+	//delay(DELAY);
 }

@@ -1,19 +1,18 @@
 void signalToTakePillState() 
 {
 	Serial.println("Debug: signalToTakePillState");
-	//treeState = pillOutput;
 
 	//shaking tree until someone goes near to the pillbox
 	while (treeState == States::signalToTakePill)
 	{
 		aktuelleZeit = millis();
-		if (entfernung() >= min_entfernung)
+		if (entfernung() > min_entfernung)
 		{
 			baumWackeln(baumwackler, aktuelleZeit);
 			//LED strip zum leuchten bringen
-			ledPulse();
+			//ledPulse();
 			//TODO: code is blocking here... try to unblock the code
-			Serial.println("Debug: Baum wackelt, Dose leuchtet");
+			Serial.println("Debug: Baum wackelt");
 		}
 		else 
 		{
