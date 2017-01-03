@@ -13,7 +13,8 @@ void takePillState()
 			Serial.println(analogRead(A4));
 			if (analogRead(A4) > 800)
 			{
-				Serial.println("Next lead to pull: " + nextLeafToPull);
+				Serial.print("Next leaf to pull: ");
+				Serial.println(nextLeafToPull);
 				switch (nextLeafToPull)
 				{
 				case 0: blattHoch(blatt1, 1, 200);

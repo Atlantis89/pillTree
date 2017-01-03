@@ -44,7 +44,7 @@ const int min_entfernung = 10; //Mindestentfernung 50 cm zu Dose
 //delays
 //const int DELAY = 3000;
 const int REFILL_DELAY = 5000;
-const int STANDBY_DELAY = 1000 * 5; // 15 Sekunden in Standby bis was passiert.
+const int STANDBY_DELAY = 1000 * 20;
 
 //long aktuelleZeit;
 //long startTime;

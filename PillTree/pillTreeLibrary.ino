@@ -20,7 +20,7 @@ long entfernung() {
 //Blatt am Baum runterlassen mit Hilfe eines Servos
 void blattRunter(Servo servo, int schrittweite, int wartezeit) {
 	int winkel = schrittweite;
-	while (winkel <= 179) {
+	while (winkel <= 178) {
 		servo.write(winkel);
 		delay(wartezeit);
 		winkel = winkel + schrittweite;
