@@ -14,6 +14,7 @@ void signalToTakePillState()
 		}
 		else 
 		{
+			baumwackler.write(90);
 			treeState = States::pillOutput;
 			Serial.println("Debug: wechselt State zu pillOutput");
 		}

@@ -87,8 +87,8 @@ void setup()
 	//baumwackler
 	baumwackler.attach(baumwackler_pin);
 	//end baumwackler
-	//pillen (reed schalter)
-	pinMode(A4, INPUT);
+	//Taster zum Anzeigen ob Pille genommen. 
+	pinMode(8, INPUT_PULLUP);
 	//end pillen
 	//annaeherung
 	pinMode(pin_annaehrung_trigger, OUTPUT);
@@ -98,6 +98,12 @@ void setup()
 	//strip.begin();
 	//strip.show(); // Initialize all pixels to 'off'
 	//end led leiste
+	//Servos resetten
+	Serial.println("Servo reset");
+	baumwackler.write(90);
+	blattRunter(blatt1, 2, 100);
+	blattRunter(blatt2, 2, 100);
+	blattRunter(blatt3, 2, 100);
 
 }
 

@@ -9,9 +9,9 @@ void takePillState()
 		//jemand steht immer noch davor
 		if (entfernung() <= min_entfernung)
 		{
-			//Serial.println("Debug: Pille nehmen: " + analogRead(A4));
-			Serial.println(analogRead(A4));
-			if (analogRead(A4) > 800)
+			//TODO: definiere pin schöner und übersichtlicher
+			Serial.println(digitalRead(8));
+			if (!digitalRead(8) == HIGH)
 			{
 				Serial.print("Next leaf to pull: ");
 				Serial.println(nextLeafToPull);
@@ -35,16 +35,17 @@ void takePillState()
 					pillsDay++;
 				}
 
-				delay(1000);
+				delay(2000);
 				moveToPosition(0);
 				treeState = States::standby;
 			}
 		}
 		else {
 			//jemand stand davor und ist wieder weggegangen ohne eine pille genommen zu haben
+			delay(1000);
 			moveToPosition(0);
 			//pillsDay--;
-			delay(10000);//warte 10 sec bis baum wieder signalisiert
+			delay(5000);//warte 10 sec bis baum wieder signalisiert
 			treeState = States::signalToTakePill;
 		}
 	}
