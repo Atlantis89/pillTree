@@ -26,12 +26,12 @@ const long max_wackel_zeit = 60000; // Maximale Wackelzeit des Baumes 1 Minuten
 //end wackeln
 //pillen (ehmaliger reed)
 //const int pille1_pin = A4; // Pin Pille 1 reed
-const long pille1_zeit = 10000; // Zeit in Millisekunden nach Start um Pille 1 zu nehmen; 10 Sec
+const long pille1_zeit = 60000; // Zeit in Millisekunden nach Start um Pille 1 zu nehmen;
 //TODO: maybe not needed. if we only use one reed switch
 //const int pille2_pin = 8; // Pin Pille 2
-//const long pille2_zeit = 60000; // Zeit in Millisekunden nach Start um Pille 2 zu nehmen; 60 Sec
+//const long pille2_zeit = 60000; // Zeit in Millisekunden nach Start um Pille 2 zu nehmen;
 //const int pille3_pin = 7; // Pin Pille 3
-//const long pille3_zeit = 120000; // Zeit in Millisekunden nach Start um Pille 3 zu nehmen; 120 Sec
+//const long pille3_zeit = 120000; // Zeit in Millisekunden nach Start um Pille 3 zu nehmen;
 //end pillen
 //anneaherung
 const int pin_annaehrung_echo = 6; // Pin Annaehrung Echo
